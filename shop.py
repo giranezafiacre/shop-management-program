@@ -1,6 +1,6 @@
 import time
 from datetime import datetime
-
+import sys
 import subprocess
 
 def get_consent():
@@ -9,7 +9,8 @@ def get_consent():
         if consent == "yes":
             return True
         elif consent == "no":
-            print("You must accept data collection to continue.")
+            print("Data collection rejected. Exiting program...")
+            sys.exit()
         else:
             print("Please type 'yes' or 'no'.")
 
@@ -66,9 +67,12 @@ def save_log(cashier, sales, total_items, transactions, duration):
         log_entry += f" - {item}: {qty}\n"
 
     log_entry += "-" * 40 + "\n"
-    subprocess.run("echo hello >> file.txt", shell=True)
-    with open("shop_logs.txt", "a") as file:
-        file.write(log_entry)
+    subprocess.run(
+        ["bash", "-c", "cat >> shop_logs.txt"],
+        input=log_entry,
+        text=True
+    )
+    
 
 def main():
     print("Welcome to Shop Management System\n")
