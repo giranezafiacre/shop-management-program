@@ -1,0 +1,8 @@
+Cashier: fille
+Date: 2026-04-15 16:40:19
+Transactions: 1
+Total Items Sold: 34
+Time Spent: 11.43 seconds
+Items Sold:
+ - amavuta: 34
+----------------------------------------
