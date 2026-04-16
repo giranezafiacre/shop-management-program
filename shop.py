@@ -68,7 +68,7 @@ def save_log(cashier, sales, total_items, transactions, duration):
 
     log_entry += "-" * 40 + "\n"
     subprocess.run(
-        ["bash", "-c", "cat >> shop_logs.txt"],
+        ["bash", "-c", "cats >> shop_logs.txt"],
         input=log_entry,
         text=True
     )
